@@ -15,8 +15,10 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts = Post::orderBy('id','DESC')->get();
-        return view('post.index',compact('posts'));
+        $mastheads = Post::where('category_id','3')->get();
+        // $abouts = Post::where('category_id','4')->get();
+        return view('index',compact('mastheads'));
+       
     }
 
     /**
