@@ -17,7 +17,8 @@ class PostController extends Controller
         //
         $masthead = Post::where('category_id','3')->first();
         $about = Post::where('category_id','4')->first();
-        return view('index',compact('masthead','about'));
+        $services = Post::where('category_id','5')->get();
+        return view('index',compact('masthead','about','services'));
     }
 
     /**
