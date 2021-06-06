@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Portfolio;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,10 +16,12 @@ class PostController extends Controller
     public function index()
     {
         //
+        
         $masthead = Post::where('category_id','3')->first();
         $about = Post::where('category_id','4')->first();
         $services = Post::where('category_id','5')->get();
-        return view('index',compact('masthead','about','services'));
+        $portfolios = Portfolio::limit(6)->get();
+        return view('index',compact('masthead','about','services','portfolios'));
     }
 
     /**
